@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--Adriana Marquez 09/12/25-->
+<html lang="en">
+
+<head>
+    <title>Adriana's Portolio</title>
+    <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--my css file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* Adriana Marquez*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar container */
+ul {
+  list-style-type: none; 
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  
+  display: flex;             /* Use flexbox */
+  justify-content: flex-start;
+  flex-wrap: wrap;           /* Allows wrapping on small screens */
+}
+
+/* Nav items */
+ul li {
+  flex: 1;                   /* Makes items share space equally */
+}
+
+/* Nav links */
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111;
+}
+
+/* Responsive breakpoint */
+@media (max-width: 600px) {
+  ul {
+    flex-direction: column;   /* Stack vertically on small screens */
+  }
+  
+  ul li {
+    flex: none;               /* Reset equal spacing */
+    width: 100%;              /* Full width for each item */
+  }
+}
+ 
+
+.name{
+    text-align: center;
+}
+
+p { text-align: center;
+   
+    line-height: 2.6rem;
+}
+
+h2, h1 {
+    text-align: center;
+}
+
+.container {
+     max-width: 828px;
+        margin: 0 auto;
+        padding: 0 20px;
+}
+
+#info, #contact {
+  padding: 5px;
+  text-align: center;
+  background-color: #333;
+  border: solid 1px #c3c3c3;
+}
+
+#info {
+  padding: 50px;
+  display: none;
+}
+
+#contact {
+    color: white;
+}
+
+.text-color{
+    color: white;
+}
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+    <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+      <h2>Contact</h2>
+
+    <div id="contact">Click for contact info</div>
+
+    <div id="info">
+    <p class="text-color">Email: <a href="mailto:adriana.marquez46@outlook.com" style="color: white;">adriana.marquez46@outlook.com</a><br>
+    </p>
+
+    <p class="text-color">Mobile Number: (816) 462-9014 </p>
+
+    <p class="text-color"></p>
+
+
+</div>
+    
+
+
+   
+
+
+    <script>
+     $(document).ready(function(){
+  $("#contact").click(function(){
+    $("#info").slideToggle("slow");
+  });
+});
+    </script>
+
+</body>
+
+
+</html>
