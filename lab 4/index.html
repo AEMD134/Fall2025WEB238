@@ -1,1 +1,253 @@
+<!DOCTYPE html>
+<!--Adriana Marquez 09/12/25-->
+<html lang="en">
+
+<head>
+    <title>Adriana's Portolio</title>
+    <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--my css file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* Adriana Marquez*/
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar container */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        /* Nav items */
+        ul li {
+            flex: 1;
+        }
+
+        /* Nav links */
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            background-color: #111;
+        }
+
+        /* Responsive breakpoint */
+        @media (max-width: 600px) {
+            ul {
+                flex-direction: column;
+            }
+
+            ul li {
+                flex: none;
+                width: 100%;
+            }
+        }
+
+        .name {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            line-height: 2.6rem;
+        }
+
+        h2,
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 828px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Gallery grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery a {
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox a {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* */
+        #photos {
+  overflow: hidden;
+  width: 600px;
+}
+
+#photos_inner {
+  height: 100px;
+  width: 1200px;
+  overflow: hidden;
+  position: relative;
+}
+
+#photos_inner img {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="portfolio.html">Home</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <h1>Gallery</h1>
+    <br><br>
+
+    <!-- Gallery -->
+    <div class="gallery">
+        <a><img src="images/image 1.png" alt="Photo 1"></a>
+        <a><img src="images/image 2.png" alt="Photo 2"></a>
+        <a><img src="images/image3.png" alt="Photo 3"></a>
+        <a><img src="images/image 4.png" alt="Photo 4"></a>
+        <a><img src="images/image 5.jpg" alt="Photo 5"></a>
+        <a><img src="images/image 6.png" alt="Photo 6"></a>
+        <a><img src="images/image 7.png" alt="Photo 7"></a>
+    </div>
+    <br>
+    <br>
+     <div id="photos">
+        <div id="photos_inner">
+          <img alt="images 1" src="images/image 1.png" />
+          <img alt="image 2" src="images/image 2.png" />
+          <img alt="image 3" src="images/image3.png" />
+          <img alt="image 4" src="images/image 4.png" />
+        </div>
+     </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <a class="close">&times;</a>
+        <img src="" alt="Enlarged Photo">
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Open lightbox with clicked image
+            $(".gallery img").click(function () {
+                let src = $(this).attr("src").replace("400", "800"); // swap to larger image
+                $(".lightbox img").attr("src", src);
+                $(".lightbox").fadeIn();
+            });
+
+            // Close lightbox
+            $(".lightbox, .close").click(function (e) {
+                if (e.target !== $(".lightbox img")[0]) {
+                    $(".lightbox").fadeOut();
+                }
+            });
+        });
+
+        //image slider
+
+        $(document).ready(function(){
+  $('#photos_inner').click(function(){
+    var scrollAmount = $(this).width() - $(this).parent().width();
+    var currentPos = Math.abs(parseInt($(this).css('left')));
+    var remainingScroll = scrollAmount - currentPos;
+  
+    // Scroll half-a-screen by default
+    var nextScroll = Math.floor($(this).parent().width() / 2);
+  
+    // But if there isn’t a FULL scroll left, do only the remaining amount.
+    if (remainingScroll < nextScroll) {
+      nextScroll = remainingScroll;
+    }
+   
+    if (currentPos < scrollAmount) {
+      // Scroll left
+      $(this).animate({'left':'-=' + nextScroll}, 'slow');
+    }
+    else {
+      // Scroll right
+      $(this).animate({'left':'0'}, 'fast');
+    }
+  });
+});
+
+    </script>
+
+</body>
+</html>
 
