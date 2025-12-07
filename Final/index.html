@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!--Adriana Marquez -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Exam</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!--CSS Style below-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        
+    }
+
+    h1, h2 { 
+        text-align: center;
+    }
+
+     p {
+            text-align: center;
+            
+        }
+#navbar {
+  background-color: #333;
+  position: fixed;
+  top: -50px;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+     footer {
+        background: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        
+    }
+
+    
+
+    main {
+        padding: 1rem;
+        min-height: 300px;
+    }
+
+    /* box */
+    .box {
+        display: flex;
+            gap: 20px;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+    }
+
+
+
+    /* Dark mode */
+    .dark-mode {
+        background: #222;
+        color: white;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+
+    /* IMAGE GALLERY */
+    .gallery {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .gallery .thumb {
+        width: 200px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    .gallery .thumb:hover {
+        transform: scale(1.05);
+    }
+
+    /* MODAL */
+    #imageModal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.85);
+        text-align: center;
+        padding-top: 80px;
+    }
+
+    #imageModal img {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 8px;
+    }
+
+    #closeModal {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .article-container {
+      max-width: 828px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+           #photos {
+  overflow: hidden;
+  width: 600px;
+}
+
+#photos_inner {
+  height: 100px;
+  width: 1200px;
+  overflow: hidden;
+  position: relative;
+}
+
+#photos_inner img {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+    
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Final Exam</h1>
+<div id="navbar">
+    <nav>
+        <a href="#About" class="nav-link">About</a>
+        <a href="#clubs" class="nav-link">Clubs</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Works Cited</a>
+    </nav>
+
+    </div>
+
+
+</header>
+
+<main>
+<div id="article" class="article-container">
+    <!-- About SECTION -->
+    <h2 id="About">What are the Spotify Wrapped clubs?</h2>
+    <p>As the year concludes, Spotify, the leading music-streaming platform, has released its annual Spotify Wrapped report. 
+        Introduced in 2016 as both a year-in-review feature and a strategic viral marketing initiative (Wikipedia), Spotify 
+        Wrapped initially reached users through email distribution but has since evolved into an integrated, app-based experience 
+        designed for seamless sharing. This year’s iteration introduces additional analytical features, including ‘Clubs’ and 
+        ‘Listening Age.’ The Listening Age metric estimates the perceived generational era of a user’s musical preferences based 
+        on their listening patterns. Spotify leverages extensive consumer data to generate individualized summaries of listening 
+        time, genre preferences, personality categorizations, and inferred age, presenting these insights in a visually engaging 
+        and easily shareable format. Notably, the algorithm assigned me a listening age of 44, presumably due to my preference for 
+        music from the 90s. This year Spotify seem to go with a retro vibe and in my opinion, bold hues. According to Anna Kaufman 
+        from USA TODAY, Spotify Wrapped is based on your listening from Jan. 1 to about mid-November. </p>
+
+    
+
+
+
+
+    <p class="intro">Below this is a button that will go into dark mood if you want to use it.</p>
+    <button id="darkModeBtn">Dark Mode</button>
+    <br><br>
+
+    <button id="showBoxBtn">Show </button>
+    <button id="hideBoxBtn">Hide </button>
+
+    <br>
+    <br>
+    <br>
+    <div class="box">
+        <a><img src="images/img-1.jpg" alt="Photo 1" width="200" height="200" ><br>
+            Cosmic Stereo Club</a>
+        <a><img src="images/img-2.jpg" alt="Photo 2" width="200" height="200" ><br>
+            Full Charge Crew</a>
+        <a><img src="images/img-3.jpg" alt="Photo 1" width="200" height="200" ><br>
+            Cloud State Society</a>
+        <a><img src="images/img-4.jpg" alt="Photo 1" width="200" height="200" ><br>
+            SoftHearts Club</a>
+        <a><img src="images/img-5.jpg" alt="Photo 1" width="200" height="200" ><br>
+            Club Serotonin</a>
+        <a><img src="images/img-6.jpg" alt="Photo 1" width="200" height="200" ><br>
+            Grit Collective</a>
+       
+        
+
+    </div>
+
+    <!-- Clubs SECTION -->
+    <h2 id="clubs" style="margin-top: 80px;">Clubs</h2>
+    <p>The images from above show's the different Clubs that Spotify has created based on your listening habits. You even get a "role". According to 
+        Spotify, club captures the emotional qualities of your year in music (Spotify). That includes the moods, genres, and musical terms that defined what 
+        you listened to most. Each Club celebrates your distinct listening, and every member gets a special role within their community, 
+        from trendsetters and taste makers to loyal fans and playlist pros (Spotify).
+    </p>
+
+    <h3>Roles</h3>
+
+    <ul>
+        <li><strong>Leader:</strong> Your listening is strongly aligned with club values, making you a perfect role model.</li>
+        <li><strong>Scout:</strong> You listen to the freshest releases, always pushing your club forward.</li>
+        <li><strong>Archivist:</strong> Your listening delves into past eras, ensuring club history never fades.</li>
+        <li><strong>Curator:</strong> You’re a focused playlist creator, combining the best of your club into mixes.</li>
+        <li><strong>Collector:</strong> You often save music to your library, building a large club collection.</li>
+        <li><strong>Recruiter:</strong> You share music far and wide, bringing in frequent new club members.</li>
+        <li><strong>Loyalist:</strong> You rarely skip tracks, confirming your unwavering dedication to the club.</li>
+        <li><strong>Supporter:</strong> Your listening favors one artist, ensuring they’re heard around your club.</li>
+        <li><strong>Broadcaster:</strong> You listen to podcasts more than others, keeping club conversation alive.</li>
+        <li><strong>Specialist:</strong> You explore experimental sounds, refining your club’s sonic boundaries.</li>
+    </ul>
+    
+
+    <!-- GALLERY SECTION -->
+    <h2 id="gallery" style="margin-top: 80px;">Wrapped Club GALLERY </h2>
+
+    <p></p>
+
+    <div class="gallery">
+        <img src="images/full-charge.jpg" class="thumb">
+        <img src="images/Cosmic.jpg" class="thumb">
+        <img src="images/Soft-hearts.jpg" class="thumb">
+        <img src="images/Cloud-State.jpg" class="thumb">
+        <img src="images/Grit.jpg" class="thumb">
+        <img src="images/Serotonin.jpg" class="thumb">
+    </div>
+
+    <br>
+    <br>
+
+    <div id="photos">
+        <div id="photos_inner">
+          <img alt="images 1" src="images/img-1.jpg" />
+          <img alt="image 2" src="images/img-2.jpg" />
+          <img alt="image 3" src="images/img-3.jpg" />
+          <img alt="image 4" src="images/img-4.jpg"/>
+          <img alt="image 5" src="images/img-5.jpg"/>
+          <img alt="image 6" src="images/img-6.jpg"/>
+       
+        </div>
+     </div>
+
+    <!-- Modal viewer -->
+    <div id="imageModal">
+        <span id="closeModal">&times;</span>
+        <img id="modalImg">
+    </div>
+
+    <!-- cite SECTION -->
+    <h2 id="contact" style="margin-top: 80px;">Works Cited</h2>
+    <p>Spotify <a href="https://newsroom.spotify.com/2025-12-03/wrapped-clubs-overview/">https://newsroom.spotify.com/2025-12-03/wrapped-clubs-overview/</a></p>
+    <p>Spotify Wrapped is here! How to find yours and what's new in 2025, by: Anna Kaufman, USA TODAY, Wed, December 3, 2025 at 7:01 AM CST 
+        <a href="https://www.yahoo.com/entertainment/music/articles/spotify-wrapped-yours-whats-2025-130128763.html">
+            https://www.yahoo.com/entertainment/music/articles/spotify-wrapped-yours-whats-2025-130128763.html
+        </a>
+    </p>
+
+    <p>Everything you need to know about Spotify Wrapped 2025, by: Tim Marcin, December 3, 2025
+        <a href="https://mashable.com/article/everything-need-to-know-spotify-wrapped-2025">https://mashable.com/article/everything-need-to-know-spotify-wrapped-2025</a>
+    </p>
+
+    <p>The marketing genius of Spotify Wrapped, by: Ishani Banerji, Clinical Assistant Professor of Marketing, Clemson University, Published: December 3, 
+        2025 8:38am EST Updated: December 3, 2025 11:09am EST  
+    <a href="https://theconversation.com/the-marketing-genius-of-spotify-wrapped-270135">https://theconversation.com/the-marketing-genius-of-spotify-wrapped-270135</a>
+    </p>
+
+    <p>Spotify Wrapped, wikipedia. 
+        <a href="https://en.wikipedia.org/wiki/Spotify_Wrapped">https://en.wikipedia.org/wiki/Spotify_Wrapped</a>
+    </p>
+</div>
+</main>
+
+<footer>
+    <p>Adriana Marquez</p>
+    <p>&copy; 2025 My Website</p>
+</footer>
+
+<script>
+
+        /* Highlight dark mood option.*/
+        $(document).ready(function () {
+            $("p").filter(".intro").css("background-color", "#84A5B0");
+        });
+
+
+    // When the user scrolls down 20px from the top of the document, slide down the navbar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+}
+    
+$(document).ready(function() {
+
+    
+
+    // 2. Smooth scroll + active link highlight (interaction + animation)
+    $(".nav-link").click(function(e) {
+        e.preventDefault();
+
+        $(".nav-link").removeClass("active");
+        $(this).addClass("active");
+
+        let target = $($(this).attr("href"));
+        $("html, body").animate({
+            scrollTop: target.offset().top
+        }, 600);
+    });
+
+    // 3. Dark mode toggle (interaction)
+    $("#darkModeBtn").click(function() {
+        $("body").toggleClass("dark-mode");
+    });
+
+    // 4. Show blue box (interaction + animation)
+    $("#showBoxBtn").click(function() {
+        $(".box").fadeIn(700);
+    });
+
+    // 5. Hide blue box (interaction + animation)
+    $("#hideBoxBtn").click(function() {
+        $(".box").fadeOut(700);
+    });
+
+    // ----- IMAGE GALLERY -----
+
+    // 6. Open modal (interaction + animation)
+    $(".thumb").click(function () {
+        let src = $(this).attr("src");
+        $("#modalImg").attr("src", src);
+        $("#imageModal").fadeIn(300);
+    });
+
+    // 7. Close modal button (interaction)
+    $("#closeModal").click(function () {
+        $("#imageModal").fadeOut(300);
+    });
+
+    // 8. Click outside image closes modal (interaction)
+    $("#imageModal").click(function (e) {
+        if (e.target.id === "imageModal") {
+            $("#imageModal").fadeOut(300);
+        }
+    });
+
+});
+
+//image slider
+
+        $(document).ready(function(){
+  $('#photos_inner').click(function(){
+    var scrollAmount = $(this).width() - $(this).parent().width();
+    var currentPos = Math.abs(parseInt($(this).css('left')));
+    var remainingScroll = scrollAmount - currentPos;
+  
+    // Scroll half-a-screen by default
+    var nextScroll = Math.floor($(this).parent().width() / 2);
+  
+    // But if there isn’t a FULL scroll left, do only the remaining amount.
+    if (remainingScroll < nextScroll) {
+      nextScroll = remainingScroll;
+    }
+   
+    if (currentPos < scrollAmount) {
+      // Scroll left
+      $(this).animate({'left':'-=' + nextScroll}, 'slow');
+    }
+    else {
+      // Scroll right
+      $(this).animate({'left':'0'}, 'fast');
+    }
+  });
+});
+</script>
+
+</body>
+
+</html>
+
+
+
+
